@@ -13,8 +13,10 @@ function Authenticate() {
   return (
     <div className="authenticate">
       <div className="auth__left">
-      <img src="https://www.pngkey.com/png/detail/0-5082_computer-icons-facebook-like-button-clip-art-facebook.png" 
-      alt="Computer Icons Facebook Like Button Clip Art - Facebook Logo Transparent Black And White@pngkey.com"/>
+        <img
+          src="https://www.pngkey.com/png/detail/0-5082_computer-icons-facebook-like-button-clip-art-facebook.png"
+          alt="Computer Icons Facebook Like Button Clip Art - Facebook Logo Transparent Black And White@pngkey.com"
+        />
       </div>
       <div className="auth__right">
         {active === "login" ? <Login /> : <Signup />}
@@ -28,7 +30,8 @@ function Authenticate() {
               </>
             ) : (
               <>
-                Already Have an account? <button onClick={handleChange}>Log in</button>
+                Already Have an account?{" "}
+                <button onClick={handleChange}>Log in</button>
               </>
             )}
           </span>

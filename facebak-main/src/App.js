@@ -1,4 +1,3 @@
-// App.js
 import "./App.css";
 import Homepage from "./Homepage";
 import Authenticate from "./authenticate/Authenticate";
@@ -10,19 +9,18 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Retirez la partie auth.onAuthStateChanged car elle utilise Firebase
-
     dispatch(setLoading(false));
     console.log("User is not logged in.");
-  }, [dispatch]); // Ajoutez "dispatch" comme dépendance
+  }, [dispatch]);
 
   const user = useSelector((state) => state.data.user.user);
   const isLoading = useSelector((state) => state.data.user.isLoading);
+  
   return (
     <div className="app">
       {isLoading ? (
-        <div class="loader-container">
-          <div class="loader"></div>
+        <div className="loader-container">
+          <div className="loader"></div>
         </div>
       ) : (
         <>{user ? <Homepage /> : <Authenticate />}</>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Importez Axios pour effectuer des appels API
+import axios from "axios";
 import "./Signup.css";
 
 function Signup() {
@@ -8,20 +8,16 @@ function Signup() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [username, setUsername] = useState("");
 
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
-    
+
     if (password === passwordConfirm) {
-      // Utilisez Axios pour envoyer les données d'inscription au backend
-      axios.post("/api/signup", { email, password, username })
-        .then((response) => {
-          // Traitez la réponse du backend en conséquence
-          console.log("Signup successful:", response.data);
-        })
-        .catch((error) => {
-          // Gérez les erreurs d'inscription
-          console.error("Signup error:", error);
-        });
+      try {
+        const response = await axios.post("http://localhost:8080/api/signup", { email, password, username });
+        console.log("Signup successful:", response.data);
+      } catch (error) {
+        console.error("Signup error:", error);
+      }
     } else {
       alert("Passwords do not match");
     }
@@ -29,7 +25,7 @@ function Signup() {
 
   return (
     <div className="signup">
-      <h1>Welcome you to facebak</h1>
+      <h1>Welcome to facebak</h1>
       <input
         onChange={(e) => setEmail(e.target.value)}
         type="email"
