@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+
+# ignore this now 
+.env
+
+# IDE
+.idea
